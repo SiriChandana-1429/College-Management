@@ -12,6 +12,7 @@ namespace Models
         public ICollection<Course> Courses { get; set; }
         
         public StudentAddress StudentAddress { get; set; }
+        public ICollection<CourseStudent> CourseStudent { get; set; }
 
 
 

@@ -15,8 +15,14 @@ namespace Models
         public string CourseId { get; set; }
         public string Name { get; set; }
         public string DepartmentId { get; set; }
+        [ForeignKey("Students")]
+        public string StudentId { get; set; }
 
-        public virtual ICollection<Student> Students { get; set; }
-        public Department Department { get; set; } 
+
+        public ICollection<Student> Students { get; set; }
+        public Department Department { get; set; }
+        public ICollection<CourseStudent> CourseStudent { get; set; }
+
+
     }
 }

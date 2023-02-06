@@ -6,41 +6,43 @@
         {
             try
             {
-               
-                MyContext myContext = new MyContext();
-                Department department = new Department();
-                department.Name = "Civil";
-                myContext.Add(department);
-                myContext.SaveChanges();
-                Console.WriteLine("Department created");
+                using (var myContext = new MyContext())
+                {
 
-                Student student = new Student();
-                student.Name = "Shashi";
+                    
+                    Department department = new Department();
+                    department.Name = "Mech";
+                    myContext.Add(department);
+                    myContext.SaveChanges();
+                    Console.WriteLine("Department created");
 
-                student.DepartmentId = "3";
-                myContext.Add(student);
-                myContext.SaveChanges();
-                Console.WriteLine("student created");
+                    Student student = new Student();
+                    student.Name = "Chandana";
 
-                Course course = new Course();
-                course.Name = "Java";
+                    student.DepartmentId = "4";
+                    myContext.Add(student);
+                    myContext.SaveChanges();
+                    Console.WriteLine("student created");
 
-                course.DepartmentId = "1";
-                myContext.Add(course);
-                myContext.SaveChanges();
-                Console.WriteLine("course created");
+                    Course course = new Course();
+                    course.Name = "Web Technology";
 
-                StudentAddress address = new StudentAddress();
-                address.StudentAddressId = "102";
-                address.State = "Telangana";
-                address.PinCode = "500084";
-                address.City = "Kurnool";
-                address.StudentId = "1";
+                    course.DepartmentId = "2";
+                    myContext.Add(course);
+                    myContext.SaveChanges();
+                    Console.WriteLine("course created");
 
-                myContext.Add(address);
-                myContext.SaveChanges();
-                Console.WriteLine("address created");
+                    StudentAddress address = new StudentAddress();
+                    address.StudentAddressId = "103";
+                    address.State = "TS";
+                    address.PinCode = "12345";
+                    address.City = "Hyderabad";
+                    address.StudentId = "3";
 
+                    myContext.Add(address);
+                    myContext.SaveChanges();
+                    Console.WriteLine("address created");
+                }
 
             }
             catch (Exception e)

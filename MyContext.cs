@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using Models;
 using System.Diagnostics;
-
-
-
+using ConsoleApp1;
 
 namespace Models
 {
@@ -14,10 +12,11 @@ namespace Models
     
 
 
-        public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Course> Courses { get; set; }
-        //public virtual DbSet<StudentAddress> StudentAddresses { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseStudent> CourseStudents { get; set; }
+        public DbSet<StudentAddress> StudentAddresses { get; set; }
 
 
 
@@ -34,7 +33,7 @@ namespace Models
             modelBuilder.Entity<Department>()
                 .Property(p => p.DepartmentId)
                 .ValueGeneratedOnAdd();
-                
+
             modelBuilder.Entity<Student>()
                 .HasKey(p => p.StudentId);
             modelBuilder.Entity<Student>()
@@ -51,16 +50,26 @@ namespace Models
 
             modelBuilder.Entity<Student>().Property(s => s.Name)
                                            .IsRequired();
-            modelBuilder.Entity<StudentAddress>().HasKey(s=>s.StudentAddressId);
-          
+            modelBuilder.Entity<StudentAddress>().HasKey(s => s.StudentAddressId);
+
             modelBuilder.Entity<Course>()
                 .HasOne(s => s.Department)
                 .WithMany(c => c.Courses);
-                
+
             modelBuilder.Entity<Student>()
                 .HasMany(s => s.Courses)
                 .WithMany(s => s.Students);
-                
+            modelBuilder.Entity<CourseStudent>()
+             .HasOne(t => t.Student)
+             .WithMany(t => t.CourseStudent)
+             .HasForeignKey(t => t.StudentId);
+
+            modelBuilder.Entity<CourseStudent>()
+                        .HasOne(t => t.Course)
+                        .WithMany(t => t.CourseStudent)
+                        .HasForeignKey(t => t.CourseId);
+
+        }   
                 
         }
 
