@@ -30,16 +30,16 @@
                 myContext.SaveChanges();
                 Console.WriteLine("course created");
 
-                //StudentAddress address = new StudentAddress();
-                //address.StudentAddressId = "102";
-                //address.State = "Telangana";
-                //address.PinCode = "500084";
-                //address.City = "Kurnool";
-                //address.StudentId="1";
+                StudentAddress address = new StudentAddress();
+                address.StudentAddressId = "102";
+                address.State = "Telangana";
+                address.PinCode = "500084";
+                address.City = "Kurnool";
+                address.StudentId = "1";
 
-                //myContext.Add(address);
-                //myContext.SaveChanges();
-                //Console.WriteLine("address created");
+                myContext.Add(address);
+                myContext.SaveChanges();
+                Console.WriteLine("address created");
 
 
             }

@@ -64,48 +64,7 @@ namespace Models
                 
         }
 
-        //    modelBuilder.Entity<Course>()
-        //        .HasOne(c => c.Student)
-        //        .WithMany(s => s.Courses)
-        //        .HasForeignKey(f => f.CurrentStudentId);
-        //    modelBuilder.Entity<Student>()
-        //        .HasMany(d => d.Courses)
-        //        .WithOne(s => s.Student)
-        //        .HasForeignKey(s=>s.CurrentStudentId);
-        //         
-        //        
-        //        
-        //    modelBuilder.Entity<Department>()
-        //        .HasKey(x => x.Id);
-        //    modelBuilder.Entity<Department>()
-        //        .Property(x => x.Id)
-        //        .HasColumnOrder(0)
-        //        .ValueGeneratedNever();
-        //    modelBuilder.Entity<Department>()
-        //        .Property(x => x.Name)
-        //        .HasColumnOrder(1);
-        //
-        //    modelBuilder.Entity<Employee>()
-        //        .Property(x => x.Id)
-        //        .HasColumnOrder(0)
-        //        .ValueGeneratedNever();
-        //    modelBuilder.Entity<Employee>()
-        //        .Property(x => x.Name)
-        //        .HasColumnOrder(1)
-        //        .IsRequired();
-        //    modelBuilder.Entity<Employee>()
-        //        .Property(x => x.Salary)
-        //        .HasDefaultValue(1000);
-        //    modelBuilder.Entity<Employee>()
-        //        .Property(p=>p.Department)
-        //        .IsRequired(p => p.Department)
-        //        .WithMany().Map(x => x.MapKey("DepartmentId"))
-        //        .HasForeignKey(p => p.AuthorFK);
-        //
-        //
-        //
-        //}
-
+        
 
     }
 
